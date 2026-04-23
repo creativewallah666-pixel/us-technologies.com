@@ -1,0 +1,26 @@
+type SubmitInquiryResult = 
+ variant {
+   err: text;
+   ok: nat;
+ };
+type RequirementType = 
+ variant {
+   agriculture;
+   home;
+   industry;
+ };
+type Inquiry = 
+ record {
+   email: text;
+   id: nat;
+   message: text;
+   name: text;
+   phone: text;
+   requirementType: RequirementType;
+   submittedAt: int;
+ };
+service : {
+  getInquiries: () -> (vec Inquiry) query;
+  submitInquiry: (name: text, phone: text, email: text, requirementType:
+   RequirementType, message: text) -> (SubmitInquiryResult);
+}

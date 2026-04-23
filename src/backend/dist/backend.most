@@ -1,0 +1,23 @@
+// Version: 1.0.0
+type Inquiry__159127206 =
+  {
+    email : Text;
+    id : Nat;
+    message : Text;
+    name : Text;
+    phone : Text;
+    requirementType : RequirementType__966925036;
+    submittedAt : Int
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type RequirementType__966925036 = {#agriculture; #home; #industry};
+actor {
+  stable inquiries :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Inquiry__159127206]];
+      var elementIndex : Nat__490723111
+    };
+  stable nextInquiryId : [var Nat]
+};
